@@ -20,11 +20,15 @@ app.get('/', async (req, res) => {
 app.post('/api/ask', async (req, res) => {
   try {
     const { prompt } = req.body;
+    console.log(prompt);
     if (!prompt) return res.status(400).json({ error: 'Prompt is required' });
 
     const chatCompletion = await openai.chat.completions.create({
       model: 'gpt-4',
       messages: [{ role: 'user', content: prompt }],
+      temperature: 1.1,
+      presence_penalty: 0,
+      frequency_penalty: 0,
     });
 
     res.json(chatCompletion.choices[0].message);
