@@ -20,7 +20,7 @@ app.get('/', async (req, res) => {
 app.post('/api/ask', async (req, res) => {
   try {
     const { prompt } = req.body;
-    console.log(prompt);
+    console.log(`[msg]:::req.prompt:::`,prompt);
     if (!prompt) return res.status(400).json({ error: 'Prompt is required' });
 
     const chatCompletion = await openai.chat.completions.create({
@@ -30,7 +30,7 @@ app.post('/api/ask', async (req, res) => {
       presence_penalty: 0,
       frequency_penalty: 0,
     });
-
+    console.log(`[msg]:::openai.response:::`,res);
     res.json(chatCompletion.choices[0].message);
 
   } catch (error) {
