@@ -20,12 +20,22 @@ app.get('/', async (req, res) => {
 app.post('/api/ask', async (req, res) => {
   try {
     const { prompt } = req.body;
+    const msgs = [
+      {
+        role: 'system',
+        content: 'you are a trading guru. given data on share prices over the past 3 days, write a report of no omre than 150 words describing the stock perfomance and recommending whether to buy, hold or sell.'
+      },
+      {
+        role: 'user',
+        content: `${prompt}` // can use `few shot` example to train model ### example ###
+      }
+    ];
     console.log(`[msg]:::req.prompt:::`,prompt);
     if (!prompt) return res.status(400).json({ error: 'Prompt is required' });
 
     const chatCompletion = await openai.chat.completions.create({
       model: 'gpt-4',
-      messages: [{ role: 'user', content: prompt }],
+      messages: msgs,
       // temperature: 1.1,
       // presence_penalty: 0,
       // frequency_penalty: 0,
