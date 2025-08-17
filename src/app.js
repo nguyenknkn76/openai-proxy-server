@@ -27,13 +27,8 @@ app.post('/api/ask', async (req, res) => {
         role: 'system',
         content: `
           You are a trading expert. Based on the stock price data from the last 3 days, please write a report of no more than 150 words describing the stock's performance and advising whether to buy, hold, or sell.  
-          The answer must follow this format:  
-          [stock code - company name] - report and advise  
-
-          Example:  
-          ###
-          [AAPL - Apple Inc.] - Over the last 3 days, Apple's stock showed steady growth with strong trading volume... Recommendation: HOLD.
-          ###
+          The answer must strictly follow this format:  
+            [STOCK_CODE - COMPANY_NAME] - <report 2–3 sentences>. Recommendation: <BUY/HOLD/SELL>
         `
       },
       {
