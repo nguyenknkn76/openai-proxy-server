@@ -9,6 +9,7 @@ app.use(express.json());
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
+  baseURL: `https://gateway.ai.cloudflare.com/v1/ed554d0f73c58e9f5e2d545041933e7a/cloudflare-openai-gateway/openai`
 });
 const PORT = process.env.PORT || 3001;
 
