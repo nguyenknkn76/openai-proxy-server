@@ -26,12 +26,13 @@ app.post('/api/ask', async (req, res) => {
     const chatCompletion = await openai.chat.completions.create({
       model: 'gpt-4',
       messages: [{ role: 'user', content: prompt }],
-      temperature: 1.1,
-      presence_penalty: 0,
-      frequency_penalty: 0,
+      // temperature: 1.1,
+      // presence_penalty: 0,
+      // frequency_penalty: 0,
     });
-    console.log(`[msg]:::openai.response:::`,res);
-    res.json(chatCompletion.choices[0].message);
+
+    console.log(`[msg]:::openai.response:::`,chatCompletion.choices[0].message.content);
+    res.json(chatCompletion.choices[0].message.content);
 
   } catch (error) {
     console.error(error);
