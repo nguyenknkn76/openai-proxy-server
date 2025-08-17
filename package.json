@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
     "start": "node src/app.js",
-    "git": "git add . && git commit -m “config” && git push origin main"
+    "git": "git add . && git commit -m “quick.commit” && git push origin main"
   },
   "keywords": [],
   "author": "",

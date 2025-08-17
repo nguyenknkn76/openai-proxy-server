@@ -13,6 +13,9 @@ const openai = new OpenAI({
 const PORT = process.env.PORT || 3001;
 
 //! setup endpoints
+app.get('/', async (req, res) => {
+  res.json({msg: "Hello from openai-proxy-server!"})
+})
 app.post('/api/ask', async (req, res) => {
   try {
     const { prompt } = req.body;
