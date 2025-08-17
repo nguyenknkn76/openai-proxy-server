@@ -31,8 +31,8 @@ app.post('/api/ask', async (req, res) => {
       // frequency_penalty: 0,
     });
 
-    console.log(`[msg]:::openai.response:::`,chatCompletion.choices[0].message.content);
-    res.json(chatCompletion.choices[0].message.content);
+    console.log(`[msg]:::openai.response:::`,chatCompletion.choices[0].message);
+    res.json(chatCompletion.choices[0].message);
 
   } catch (error) {
     console.error(error);
