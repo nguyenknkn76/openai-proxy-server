@@ -45,7 +45,7 @@ app.post('/api/ask', async (req, res) => {
       temperature: 1.1,
       presence_penalty: 0,
       frequency_penalty: 0,
-      max_tokens: 100
+      max_tokens: 150
     });
 
     console.log(`[msg]:::openai.response:::`,chatCompletion.choices[0].message);
